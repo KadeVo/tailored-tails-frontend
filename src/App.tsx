@@ -20,7 +20,7 @@ const App = () => {
       <ToastContainer />
       <Navbar />
       <Routes>
-        <Route path="/success" element={<Success />} />
+        <Route path="/successpage" element={<Success />} />
         <Route path="/items" element={<Items />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/items/:itemId" element={<SingleItem />} />
