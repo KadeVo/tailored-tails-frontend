@@ -8,7 +8,7 @@ export const setItems = (items) => ({
 export const fetchItems = () => {
   return (dispatch) => {
     axios
-      .get('https://tailored-tails-api.onrender.com/items')
+      .get('https://tailored-tails-api-05jq.onrender.com/items')
       .then((response) => {
         dispatch(setItems(response.data))
       })
