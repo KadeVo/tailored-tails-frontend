@@ -1,41 +1,41 @@
 const Footer = () => {
   return (
     <footer className="bg-slate-800 pb-8 pt-16 mt-[5%]  border-gray-200 text-white">
-      <div className="container mx-auto flex flex-col items-center gap-[30px]">
-        <div className="lg:grid lg:grid-cols-3 mb-4 text-center gap-[20%]">
+      <div className="container mx-auto flex flex-col items-center gap-8 md:gap-16">
+        <div className="lg:grid lg:grid-cols-3 gap-8 text-center">
           <div>
-            <h4 className="text-2xl font-semibold mb-2 hover:underline cursor-pointer ">
-              About Us
-            </h4>
+            <h4 className="text-2xl font-semibold mb-2">About Us</h4>
+            <p>
+              This website was made by Kadin V & Paul T. We created it out of
+              the desire to expand our knowledge and challenge ourselves with
+              understanding the mechanics of a Authentication system & a Cart
+              System. Both were big challenges but we are happy with the result.
+              Hope you like our website! 😊
+            </p>
           </div>
           <div>
             <h4 className="text-2xl font-semibold mb-2">Contact Us</h4>
-            <br />
-            <p>Email:</p>
-            <p>info@example.com</p>
-            <p>Phone:</p>
-            <p>1203-456-7890</p>
-            <div className="flex justify-center my-[10%] gap-[10%]">
-              <img src="/icons/facebook.png" alt="" />
-              <img src="/icons/instagram.png" alt="" />
-              <img src="/icons/twitter.png" alt="" />
-              <img src="/icons/linkedin.png" alt="" />
+            <p>Email: info@example.com</p>
+            <p>
+              Phone: <a href="tel:+12034567890">+0123456789</a>
+            </p>
+            <div className="flex justify-center mt-4 gap-4">
+              <img src="/icons/facebook.png" alt="" className="w-6" />
+              <img src="/icons/instagram.png" alt="" className="w-6" />
+              <img src="/icons/twitter.png" alt="" className="w-6" />
+              <img src="/icons/linkedin.png" alt="" className="w-6" />
             </div>
           </div>
           <div>
             <h4 className="text-2xl font-semibold mb-2">Locations</h4>
-            <br />
-            <p>Auckland</p>
-            <p className="pb-[5%]">+0123456789</p>
-            <p>Wellington</p>
-            <p className="pb-[5%]">+0123456789</p>
-            <p>Christchurch</p>
-            <p className="pb-[5%]">+0123456789</p>
+            <p>Auckland: +0123456789</p>
+            <p>Wellington: +0123456789</p>
+            <p>Christchurch: +0123456789</p>
           </div>
         </div>
-        <div className="text-center text-sm">
-          <p className=""> © 2023 Tailored Tails. All rights reserved.</p>
-          <p className="">Created by Kadin V & Paul T</p>
+        <div className="text-center text-sm mt-8">
+          <p>© 2023 Tailored Tails. All rights reserved.</p>
+          <p>Created by Kadin V & Paul T</p>
           <p className="text-xs">Images from FreekPik, Unsplash & Imagine</p>
         </div>
       </div>
