@@ -46,7 +46,7 @@ const Carousel: React.FC = () => {
   }
 
   return (
-    <div className="w-full h-80 overflow-hidden relative">
+    <div className="w-full h-1/3 md:h-80 overflow-hidden relative">
       <div className="flex transition-transform duration-500 ease-in-out">
         {visibleImages.map((image) => (
           <img
@@ -60,13 +60,13 @@ const Carousel: React.FC = () => {
       <div className="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full">
         <button
           onClick={handlePrevClick}
-          className="bg-gray-400  hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-gray-400  hover:bg-gray-700 text-white font-bold py-2 px-2 md:px-4 rounded"
         >
           ◀
         </button>
         <button
           onClick={handleNextClick}
-          className="bg-gray-400 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-gray-400  hover:bg-gray-700 text-white font-bold py-2 px-2 md:px-4 rounded"
         >
           ▶
         </button>
