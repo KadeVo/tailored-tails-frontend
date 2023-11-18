@@ -53,7 +53,7 @@ const Carousel: React.FC = () => {
             key={image._id}
             src={image.imageUrl}
             alt={image.name}
-            className="w-full h-80 object-cover object-center ml-2 mr-2 transition-transform duration-500 ease-in-out"
+            className="w-full h-full object-cover object-center md:w-1/4 md:h-80 lg:w-1/5 lg:h-80 xl:w-1/6 xl:h-80 ml-2 mr-2 transition-transform duration-500 ease-in-out"
           />
         ))}
       </div>
