@@ -28,9 +28,15 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="text-2xl font-semibold mb-2">Locations</h4>
-            <p>Auckland: +0123456789</p>
-            <p>Wellington: +0123456789</p>
-            <p>Christchurch: +0123456789</p>
+            <p>
+              Auckland: <a href="tel:+12034567890">+0123456789</a>
+            </p>
+            <p>
+              Wellington: <a href="tel:+12034567890">+0123456789</a>
+            </p>
+            <p>
+              Christchurch: <a href="tel:+12034567890">+0123456789</a>
+            </p>
           </div>
         </div>
         <div className="text-center text-sm mt-8">
