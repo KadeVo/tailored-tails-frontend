@@ -1,48 +1,52 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useGetAllProductsQuery } from '../features/productsApi'
 import { ItemInterface } from '../interfaces/iteminterface'
+import Loading from './Loading'
 
 const Carousel: React.FC = () => {
-  const [images, setImages] = useState<ItemInterface[]>([])
+  const { data: items, error, isLoading } = useGetAllProductsQuery({})
   const [visibleImages, setVisibleImages] = useState<ItemInterface[]>([])
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 
   useEffect(() => {
-    axios
-      .get<ItemInterface[]>(
-        'https://tailored-tails-api-05jq.onrender.com/items'
-      )
-      .then((response) => {
-        setImages(response.data)
-        setVisibleImages(response.data.slice(0, 4))
-      })
-      .catch((error) => {
-        console.error('Error fetching items:', error)
-      })
-  }, [])
+    if (items) {
+      setVisibleImages(items.slice(0, 4))
+    }
+  }, [items])
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % (images.length - 3))
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % (items?.length - 3 || 0))
     }, 2500)
 
     return () => {
       clearInterval(timer)
     }
-  }, [currentIndex, images])
+  }, [currentIndex, items])
 
   useEffect(() => {
-    setVisibleImages(images.slice(currentIndex, currentIndex + 4))
-  }, [currentIndex, images])
+    if (items) {
+      setVisibleImages(items.slice(currentIndex, currentIndex + 4))
+    }
+  }, [currentIndex, items])
 
   const handlePrevClick = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % (images.length - 3)
+      (prevIndex) =>
+        (prevIndex - 1 + (items?.length || 0)) % (items?.length - 3 || 0)
     )
   }
 
   const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % (images.length - 3))
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % (items?.length - 3 || 0))
+  }
+
+  if (isLoading) {
+    return <Loading />
+  }
+
+  if (error) {
+    console.error('Error fetching items:', error)
   }
 
   return (
