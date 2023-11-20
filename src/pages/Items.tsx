@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 import { useGetAllProductsQuery } from '../features/productsApi'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../features/cartSlice'
+import Loading from '../components/Loading'
 
 const Items = ({ fetchItems }) => {
-
   const { data: items, error, isLoading } = useGetAllProductsQuery({})
   const dispatch = useDispatch()
   const [currentPage, setCurrentPage] = useState(1)
@@ -29,7 +29,7 @@ const Items = ({ fetchItems }) => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   if (isLoading) {
-    return <div>Loading...Please wait</div>
+    return <Loading />
   }
   if (error) {
     console.log('ERROR:', error)
@@ -174,7 +174,7 @@ const Items = ({ fetchItems }) => {
 }
 const mapStateToProps = (state) => {
   return {
-    items: state.items, 
+    items: state.items,
   }
 }
 
